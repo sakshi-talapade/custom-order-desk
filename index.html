@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Custom Order Desk – Prompts &amp; Evals</title>
+<style>
+:root{--forest:#18392E;--sage:#527C65;--mint:#DCE9DF;--bg:#F7F8F5;--card:#fff;--ink:#252B27;--grey:#6B746E;--line:#D5DDD7;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14201A;--card:#1C2B23;--ink:#E6ECE8;--grey:#9AA8A0;--line:#2D4036;--mint:#24392E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14201A;--card:#1C2B23;--ink:#E6ECE8;--grey:#9AA8A0;--line:#2D4036;--mint:#24392E;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.55}
+header{background:#18392E;color:#fff;padding:40px 20px 34px}
+.w{max-width:960px;margin:0 auto}
+.k{font-size:12px;letter-spacing:.18em;color:#A9C5B3;font-weight:600}
+h1{margin:8px 0 6px;font-family:"DM Sans",Inter,sans-serif;font-size:34px;letter-spacing:.01em}
+header p{margin:0;color:#DCE9DF}
+a.btn{display:inline-block;margin-top:16px;background:#527C65;color:#fff;text-decoration:none;padding:8px 16px;border-radius:999px;font-size:14px;font-weight:600}
+main{padding:28px 20px 60px}
+h2{font-family:"DM Sans",Inter,sans-serif;font-size:20px;margin:34px 0 4px;color:var(--ink)}
+h2+p{margin:0 0 14px;color:var(--grey);font-size:14px}
+.g{display:grid;grid-template-columns:1fr 1.4fr;gap:16px}
+@media (max-width:760px){.g{grid-template-columns:1fr}}
+.c{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.c h3{margin:0;padding:12px 16px;background:var(--mint);font-size:14px;color:var(--ink)}
+.c h3 span{color:var(--grey);font-weight:400;margin-left:8px}
+pre{margin:0;padding:16px;white-space:pre-wrap;word-wrap:break-word;font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace}
+.t{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--mint);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+tr:last-child td{border-bottom:0}
+.pass{background:#DCE9DF;color:#18392E;padding:2px 10px;border-radius:999px;font-weight:600;font-size:12px}
+footer{color:var(--grey);font-size:13px;text-align:center;padding-bottom:30px}
+</style></head><body>
+<header><div class="w"><div class="k">PRODUCT CASE STUDY / 2026 · GROWW APM</div><h1>Custom Order Desk</h1><p>Prompts used to build the tool, and the evals used to test it.</p><a class="btn" href="https://custom-order-chowki.lovable.app" target="_blank" rel="noopener">Open the live prototype ↗</a></div></header>
+<main><div class="w">
+<h2>Prompts</h2><p>Built with Lovable in two stages. Full text, in order.</p>
+<div class="g"><div class="c"><h3>P1<span>Initial product build</span></h3><pre>Build a responsive web application called "Custom Order Desk" for small Indian businesses that handle customised customer orders through WhatsApp and Instagram, particularly home bakers and boutique sellers.
+
+The product should help business owners manage customer-specific order requirements, advance payments, pending balances and promised delivery dates.
+
+DESIGN:
+- Clean, minimal, premium SaaS dashboard.
+- White/light background with subtle green accents.
+- Professional typography and clear visual hierarchy.
+- Desktop-first but responsive on mobile.
+- Currency in INR.
+
+CORE SCREENS:
+1. DASHBOARD
+- Show total active orders, deliveries due today, pending balances and overdue orders.
+- Display recent orders in a searchable table.
+- Add filters for order status and delivery date.
+- Provide a prominent "Add New Order" action.
+
+2. ADD / EDIT ORDER
+Fields: customer name and phone number; product name; customisation requirements; reference image URL (optional); total order amount; advance payment received; delivery date and time; additional notes; order status.
+Automatically calculate remaining balance.
+
+3. FULFILMENT BOARD
+Display orders grouped by Confirmed, In Preparation, Ready, Delivered. Allow users to update order status.
+
+FUNCTIONAL REQUIREMENTS:
+- Add, edit and delete orders.
+- Search and filter orders.
+- Update payment status and fulfilment status.
+- Calculate outstanding balances automatically.
+- Highlight overdue and upcoming orders.
+- Persist data using local storage or an appropriate simple backend.
+
+Populate the app with 6 realistic sample orders for an Indian home bakery.</pre></div><div class="c"><h3>P2<span>Functional refinement</span></h3><pre>Review the existing Custom Order Desk application and make the following improvements in this single build. Preserve the current visual design, layout, colour palette, navigation and existing working features. Do not rebuild the app from scratch or introduce unnecessary new features.
+
+1. Complete Add/Edit Order functionality
+- Ensure the Add New Order button opens a working form.
+- Include customer name, phone number, product name, customisation requirements, reference image URL (optional), total order amount, advance payment, delivery date, delivery time and additional notes.
+- Allow existing orders to be edited.
+- Validate required fields and prevent negative or invalid payment amounts.
+- Ensure the advance payment cannot exceed the total order amount.
+- Calculate the remaining balance automatically.
+
+2. Improve payment tracking
+- Allow the owner to record additional payments against an existing order.
+- Update the outstanding balance immediately after a payment is recorded.
+- Automatically show Paid, Partially Paid or Unpaid based on the remaining balance.
+- Keep payment status separate from fulfilment status.
+
+3. Ensure order management works
+- Add, edit and delete orders. Ask for confirmation before deleting.
+- Allow orders to move through Confirmed → In Preparation → Ready → Delivered, and back to a previous stage if needed.
+- Ensure changes are reflected immediately across the dashboard, recent orders and fulfilment board.
+
+4. Correct dashboard calculations (dynamic, from actual order data)
+- Active Orders: all orders not yet delivered.
+- Deliveries Due Today: undelivered orders scheduled for today's date.
+- Pending Balances: sum of outstanding balances across relevant orders.
+- Overdue Orders: undelivered orders with a delivery date earlier than today.
+Delivered orders must not count as active or overdue. Use the current date dynamically rather than hardcoded dates.
+
+5. Improve search and filters
+- Search by customer name, phone number and product name.
+- Filter by fulfilment status and delivery date.
+- Ensure filters and search work together; provide a clear reset option.
+
+6. Make customisation details central
+Customisation requirements are the key reason this product exists. Make them easy to access and read when viewing an order. Do not hide important details such as flavour, design, size, colour, reference instructions or customer preferences behind truncated text.
+
+7. Ensure data persistence
+- Save orders so they remain available after refreshing or reopening the app (local storage if no backend).
+- Ensure sample orders and newly created orders follow the same data structure.
+- Avoid losing existing sample orders or user-created data during normal app usage.
+
+8. Fix responsive design
+- Make the app fully usable on mobile, tablet and desktop.
+- Fix the horizontal overflow and scrolling issues in the recent orders table; on smaller screens use readable stacked order cards or another suitable layout.
+- Ensure all buttons, forms, navigation and order details remain accessible on mobile.
+
+9. Final functionality check. Before finishing, test: (1) add a new order and verify it appears on the dashboard and fulfilment board; (2) edit it and verify the changes everywhere; (3) record an additional payment and verify the balance; (4) move the order through all fulfilment stages; (5) verify dashboard counts and overdue indicators; (6) search and filter; (7) refresh and verify data persists.</pre></div></div>
+<h2>Evals</h2><p>Seven tests run on the working prototype.</p>
+<div class="t"><table><thead><tr><th>#</th><th>Evaluation</th><th>Expected result</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Create a new order</td><td>Order appears in dashboard and board</td><td><span class="pass">Pass</span></td></tr><tr><td>2</td><td>Edit an order</td><td>Updated details appear correctly</td><td><span class="pass">Pass</span></td></tr><tr><td>3</td><td>Record partial payment</td><td>Outstanding balance recalculates</td><td><span class="pass">Pass</span></td></tr><tr><td>4</td><td>Refresh application</td><td>Existing order data persists</td><td><span class="pass">Pass</span></td></tr><tr><td>5</td><td>Update fulfilment status</td><td>Order moves through stages</td><td><span class="pass">Pass</span></td></tr><tr><td>6</td><td>Search and filter</td><td>Relevant orders are displayed</td><td><span class="pass">Pass</span></td></tr><tr><td>7</td><td>Dashboard calculations</td><td>Counts and balances reflect order data</td><td><span class="pass">Pass</span></td></tr></tbody></table></div>
+</div></main><footer>Custom Order Desk · Product case study</footer></body></html>
